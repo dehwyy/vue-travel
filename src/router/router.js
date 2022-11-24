@@ -1,4 +1,3 @@
-// @ts-nocheck
 import MainContent from "../components/content/Main.vue"
 import Info from "../components/content/Info.vue"
 import { createRouter, createWebHashHistory } from "vue-router"

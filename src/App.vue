@@ -1,6 +1,6 @@
 <template>
-  <div class="wrapper">
-      <Navbar class="navbar"/>
+  <div class="wrapper" @click="clearFocuses()">
+      <Navbar class="nav"/>
       <Sidebar />
       <router-view></router-view>
   </div>
@@ -9,6 +9,8 @@
 <script lang="ts" setup>
 import Navbar from "./components/Navbar.vue"
 import Sidebar from "./components/Sidebar.vue"
+import {useInputFocus} from "./Pinia/AllSelectInputFocus";
+const clearFocuses = useInputFocus().clearFocuses
 </script>
 
 <style lang="scss">
@@ -17,6 +19,7 @@ import Sidebar from "./components/Sidebar.vue"
     --my-blue: #56799d;
     --my-green: #41b883;
     --my-yellow: #efc441;
+    --my-gray: #d9d9d9;
   }
   body {
     overflow-x: hidden;
@@ -28,7 +31,7 @@ import Sidebar from "./components/Sidebar.vue"
     display: grid;
     grid-template: 10vh 1fr / 20vw 1fr;
   }
-  .navbar {
+  .nav {
     grid-column: 1 / -1;
   }
   input[type=text] {

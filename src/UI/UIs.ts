@@ -1,4 +1,4 @@
-import inputQuery from "./inputQuery.vue";
+import inputQuery from "./InputSelect.vue";
 import SearchIcon from "./SearchIcon.vue"
 
 export default [
