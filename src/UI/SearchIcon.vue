@@ -3,6 +3,7 @@
 </template>
 <style scoped>
 i {
+  position: absolute;
   font-size: 5vh;
   transition: 0.5s ease;
 }

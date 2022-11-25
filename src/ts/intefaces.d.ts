@@ -9,6 +9,7 @@ export interface Itour {
     price: string
     title: string
     country: string
+    countryRoman: string
     url: string
     link: string
     dateOfDeport: string

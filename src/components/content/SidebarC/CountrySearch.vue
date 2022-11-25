@@ -3,7 +3,7 @@
     <label for="countryInput" class="search__text">Страна:
     </label>
     <div class="search__input">
-      <input-select :tags="countryList" placeholder="Введите страну" my-key="country"/>
+      <input-select :tags="countryList" placeholder="Введите страну" my-key="countries"/>
     </div>
   </div>
 </template>

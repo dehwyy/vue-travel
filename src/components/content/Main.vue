@@ -1,6 +1,6 @@
 <template>
 	<div class="main">
-      <div class="item" v-for="tour in tours">
+      <div class="item" v-for="tour in SidebarQuery.filteredTours">
         <div class="item__img">
           <img :src="tour.url" />
         </div>
@@ -21,10 +21,9 @@
 <script lang="ts" setup>
 import Info from "./MainC/Info.vue";
 import TourTag from "./MainC/TourTag.vue";
-import {useToursStore} from "../../Pinia/ToursStore";
+import {useSidebarQuery} from "../../Pinia/SidebarQuery";
 
-const MainStore = useToursStore()
-const tours = MainStore.filteredTours
+const SidebarQuery = useSidebarQuery()
 </script>
 <style lang="scss" scoped>
 	.main {
@@ -38,7 +37,8 @@ const tours = MainStore.filteredTours
       display: grid;
       padding: 2vw;
       grid-template: 55vh 2fr / 1fr 20vw;
-      margin: 1vh auto 0;
+      margin-top: 1vh;
+      margin-left: 2vw;
       &__img {
         width: 100%;
         height: 100%;
@@ -75,7 +75,7 @@ const tours = MainStore.filteredTours
         display: flex;
         flex-grow: 1;
         flex-wrap: wrap;
-        width: 60%;
+        width: 100%;
       }
     }
   }

@@ -23,15 +23,17 @@ const consts = useConsts()
 </script>
 <style scoped lang="scss">
 	.sidebar {
-		box-shadow: 1vh 0 var(--my-green)!important;
-    background-color: var(--my-yellow);
+		box-shadow: 0 2vh 3vh 1vh var(--my-green)!important;
     align-self: flex-start;
-    min-height: 1500px;
     color: white;
     font-size: 2vh;
-	}
+    margin: 2vh auto 0;
+    border-radius: 1vh;
+
+  }
   .sidebar__wrapper {
-    padding: 3vh 0 1vh 1vh;
+    padding: 3vh;
+    border-radius: 1vh;
     background-color: var(--my-blue);
     height: content-box;
     display: flex;
@@ -42,7 +44,7 @@ const consts = useConsts()
     margin: 0 auto;
     position: relative;
     left: -0.5vh;
-    padding: 2vh 0;
+    padding: 2vh 0 6vh;
     & > button {
       background-color: var(--my-green);
       color: white;

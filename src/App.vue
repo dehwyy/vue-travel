@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" @click="clearFocuses()">
-      <Navbar class="nav"/>
+      <Navbar class="nav" />
       <Sidebar />
       <router-view></router-view>
   </div>
@@ -29,7 +29,7 @@ const clearFocuses = useInputFocus().clearFocuses
     min-height: 100vh;
     background-color: rgba(33, 124, 166, 0.1);
     display: grid;
-    grid-template: 10vh 1fr / 20vw 1fr;
+    grid-template: 10vh 1fr / 22vw 1fr;
   }
   .nav {
     grid-column: 1 / -1;

@@ -17,7 +17,7 @@
       </div>
       <div class="nav__queryIcon"
            @click="setQueryActive"
-            ><SearchIcon style="top: 1vh;"/>
+            ><SearchIcon />
       </div>
       <NavItem :inner="cs.profile" />
 	  </div>
@@ -27,7 +27,6 @@
 import {ref} from "vue";
 import NavItem from "./Nav/NavItem.vue"
 import {useNav} from "../Pinia/NavStore";
-
 const navQuery = useNav()
 const cs = navQuery.constants
 const isQueryActive = ref(false)
@@ -64,9 +63,13 @@ const setQueryActive = () => {
   }
   &__query {
     width: 20vw;
+
   }
   &__queryIcon {
-    margin: 0 0 0 2vw;
+    margin: 0 5vw 0 2vw;
+    & i {
+      top: 2.5vh;
+    }
   }
 }
 </style>

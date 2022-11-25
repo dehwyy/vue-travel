@@ -1,23 +1,30 @@
 import {defineStore} from "pinia";
-import {tagsList} from "../ts/intefaces";
-interface countryList {
-    [key]: {
-        link: string,
-        title: string
-    }
+interface list {
+    link: string,
+    title: string
 }
 export const useConsts = defineStore("constsStore", {
     state: () => ({
-        tagsList: <tagsList>{
+        tagsList: <Record<string, list>>{
             japan: {link: "/japan", title: "JAPAN"},
             maldives: {link: "/maldives", title: "MALDIVES"},
             verified: {link: "/verified", title: "VERIFIED"},
             premium: {link: "/premium", title: "PREMIUM"},
             wifi: {link: "/wifi", title: "WI-FI"},
             bath: {link: "/bath", title: "ABOBBOBBOA"},
-            cityView: {link: "/cityview", title: "CITY VIEW"}
+            'city view': {link: "/cityview", title: "CITY VIEW"},
+            russia: {link: "/russia", title: "RUSSIA"},
+            lake: {link: "/lake", title: "LAKE"},
+            nature: {link: "/nature", title: "NATURE"},
+            palace: {link: "/palace", title: "PALACE"},
+            'sea view': {link: "/seaview", title: "SEA VIEW"},
+            conditioner: {link: "/conditioner", title: "CONDITIONER"},
+            terrace: {link: "/terrace", title: "TERRACE"},
+            restaurant: {link: "/restaurant", title: "RESTAURANT"},
+            test: {link: "test", title: "test"}
+
         },
-        countryList: <countryList>{
+        countryList: <Record<string, list>>{
             japan: {link: "/japan", title: "JAPAN"},
             russia: {link: "/russia", title: "RUSSIA"},
             usa: {link: "/usa", title: "USA"},
