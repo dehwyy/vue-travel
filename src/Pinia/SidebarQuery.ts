@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import {useToursStore} from "./ToursStore";
+import {useNav} from "./NavStore";
 
 interface rangesSelected {
     minNights: number,
@@ -41,18 +42,24 @@ export const useSidebarQuery = defineStore("sidebarQuery", {
         },
     },
     getters: {
-        filteredTours(state) {
-            console.log(1)
-            const tours = useToursStore()
-            return tours.tours.filter(tour => {
-                const isInCountries =
-                    state.countriesSelected.length > 0 ?
-                    state.countriesSelected.includes(tour.countryRoman) : true
-                const isInStarsRange = state.starSelected.length ? state.starSelected[tour.stars + 1] : true
-                const isNightsRange = (state.rangesSelected.minNights || -Infinity) <= tour.night
-                    && tour.night <= (state.rangesSelected.maxNights || Infinity)
-                const isInBudgetRange = parseInt(tour.price) < (state.rangesSelected.budget || Infinity)
+        filteredTours: function (state) {
+            const contries = state.countriesSelected
+            const stars = state.starSelected
+            const minNights = state.rangesSelected.minNights || -Infinity
+            const maxNights = state.rangesSelected.maxNights || Infinity
+            const budget = state.rangesSelected.budget || Infinity
+            const tours = useNav().keywordFilter
+            return tours.filter(tour => {
+                const isInCountries = contries.length > 0 ? contries.includes(tour.countryRoman) : true
+                // check if countries isn't empty, check whether selected countries includes tour's country, else true
+                const isInStarsRange = stars.includes(true) ? stars[tour.stars - 1] : true
+                // check if starsRange has any flag equals true, check whether hotel's stars in selectedStars, else true
+                const isNightsRange = minNights <= tour.night && tour.night <= maxNights
+                // check if hotel's nights' count is greater than min and less than max
+                const isInBudgetRange = parseInt(tour.price) < budget
+                // check if hotel's price is less than max-budget selected
                 const isTagsIncludes = checkAllTags(state.tagsSelected, tour.tags)
+                //check if all selected tags are in hotel's tags
                 return isInCountries && isInStarsRange && isNightsRange && isInBudgetRange && isTagsIncludes
             })
         },

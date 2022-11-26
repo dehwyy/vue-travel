@@ -34,6 +34,7 @@ const consts = useConsts()
   .sidebar__wrapper {
     padding: 3vh;
     border-radius: 1vh;
+    min-width: 21vw;
     background-color: var(--my-blue);
     height: content-box;
     display: flex;

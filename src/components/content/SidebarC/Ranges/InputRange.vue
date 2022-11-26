@@ -30,7 +30,7 @@ const attrs = useAttrs()
 const sidebarQuery = useSidebarQuery()
 const rangeValue = attrs["my-key"] === "maxNights" ?  ref(String(props.minmax.max)) : ref(String(props.minmax.min))
 //watchers
-watch(() => rangeValue, () => {
+watch(() => rangeValue.value, () => {
   sidebarQuery.updateRange(attrs["my-key"] as string, rangeValue.value)
 })
 //getters
